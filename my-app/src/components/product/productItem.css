@@ -1,0 +1,40 @@
+.item{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    border: 1px solid lightgrey;
+}
+img{
+    padding: 5px 10px ;
+    max-width: 250px;
+}
+.item__title{
+    flex-grow: 1;
+    color: rgb(61, 62, 63);
+    padding: 5px;
+    margin: 20px 0 10px 0;
+}
+.priceTag{
+    padding: 5px 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.isAvailable{
+    font-size: 14px;
+    color: rgb(4, 211, 39);
+}
+.price{
+    font-weight: bold;
+}
+.item button{   
+    padding: 5px  10px;
+    background-color: rgb(4, 211, 39);
+    margin: 0 0 15px 0;
+    color: white;
+    font-size: 15px;
+    border:none;
+}
+/* .item__buy{
+    margin-top: auto;
+} */
