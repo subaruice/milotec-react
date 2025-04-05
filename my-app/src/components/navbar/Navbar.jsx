@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import basket from "../../assets/free-icon-basket-7086260.png";
 import imgLogin from "../../assets/icon-log.png";
+import { SearchContext } from "../context/context";
 
 const Navbar = () => {
+    const { query, setQuery } = useContext(SearchContext);
+
     return (
         <div className="navbar">
             <div className="logo">
-                <img className="logo-img"
+                <Link to={'/'}> 
+                <img
+                    className="logo-img"
                     src="https://static.golemos.com/lukasdubina/milotec/img/logo.png"
                     alt=""
                 />
+                </Link>
             </div>
             <div className="search-panel">
-                <input type="text" placeholder="Введите текст..." />
+                <input
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Введите текст..."
+                />
             </div>
             <div className="auth">
                 <div className="checkout">
@@ -23,7 +33,10 @@ const Navbar = () => {
                         <Link to={"/Login"}>Войти</Link>
                         <Link to={"/Registration"}>Регистрация</Link>
                     </div>
-                    <img className="basket-img" src={basket} alt=""/>
+                    <div className="basket">
+                        <img className="basket-img" src={basket} alt="" />
+                        <span>0 шт.</span>
+                    </div>
                 </div>
             </div>
         </div>

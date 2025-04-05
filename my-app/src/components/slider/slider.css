@@ -1,0 +1,32 @@
+.slider {
+    padding: 10px 10px;    
+    max-width: 600px;
+    margin: auto;
+}
+
+.slider img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.dots {
+    margin-top: 10px;
+    justify-content: center;    
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: rgb(8, 0, 0);
+}
