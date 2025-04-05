@@ -28,7 +28,7 @@ const models = [
     },
     {
         name: "Škoda Fabia",
-        categories: ["Интерьер", "Экстерьер"],
+        categories: ["Интерьер", "Экстерьер", "Акссесуары"],
     },
     {
         name: "Škoda Karoq",
@@ -41,16 +41,34 @@ const models = [
 ];
 
 const Sidebar = () => {
-    const [activeModel, setActiveModel] = useState(null);
+    const [openModel, setOpenModel] = useState(null);
+
+    const toggleModel = (modelName) => {
+        setOpenModel((active) => (active === modelName ? null : modelName));
+    };
 
     return (
         <div className="sidebar">
             <h4>Каталог Skoda</h4>
             <ul>
                 {models.map((model) => (
-                    <li className="models" key={model.name}>
+                    <li
+                        onClick={() => {
+                            toggleModel(model.name);
+                        }}
+                        className={`models ${openModel === model.name ? 'active': ''}`}
+                        key={model.name}
+                    >
                         {model.name}
-                        {}
+                        {openModel === model.name && (
+                            <ul className="submodels">
+                                {model.categories.map((cat, index) => (
+                                    <li key={index} className="submodel">
+                                        {cat}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </li>
                 ))}
             </ul>
